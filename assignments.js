@@ -64,3 +64,115 @@ const percentages = [
 console.log(percentages);
 
 // LECTURE: Basic Array Operations (Methods)
+
+const neighbours = ['Colombia', 'Bolivia', 'Suriname'];
+console.log(neighbours);
+
+neighbours.push('Utopia');
+console.log(neighbours);
+
+neighbours.pop();
+console.log(neighbours);
+
+if (!neighbours.includes('Germany')) {
+  console.log('Probably not a central European country :D');
+}
+
+neighbours[neighbours.indexOf('Suriname')] = 'Republic of Suriname';
+console.log(neighbours);
+
+// LECTURE: Introduction to Objects
+
+const myCountry = {
+  country: 'Brazil',
+  capital: 'Brasilia',
+  language: 'Portuguese',
+  population: 211,
+  neighbours: ['Colombia', 'Bolivia', 'Peru'],
+};
+
+console.log(
+  `${myCountry.country} has ${myCountry.population} million ${myCountry.language}-speaking people,
+${myCountry.neighbours.length} neighbouring countries and
+a capital called ${myCountry.capital} `
+);
+
+myCountry.population += 2;
+console.log(myCountry.population);
+
+myCountry['population'] -= 2;
+console.log(myCountry.population);
+
+// LECTURE: Object Methods
+
+const myCountry2 = {
+  country: 'Brazil',
+  capital: 'Brasilia',
+  language: 'Portuguese',
+  population: 211,
+  neighbours: ['Colombia', 'Bolivia', 'Peru'],
+
+  describe: function () {
+    console.log(
+      `${this.country} has ${this.population} million
+    ${this.language}-speaking people,
+    ${this.neighbours.length} neighbouring countries and a
+    capital called ${this.capital}.`
+    );
+  },
+
+  checkIsland: function () {
+    this.isIsland = this.neighbours.length === 0 ? true : false;
+    console.log(this.isIsland);
+  },
+};
+
+myCountry2.describe();
+myCountry2.checkIsland();
+
+// LECTURE: Iteration: The for Loop
+
+for (let voter = 0; voter <= 50; voter++) {
+  console.log(`Voter number ${voter} is currently voting`);
+}
+
+// LECTURE: Looping Arrays, Breaking and Continuing
+
+// function percentageOfWorld1(population) {
+//   return (population / 7900) * 100; }
+
+// populations = [211, 6, 126, 83];
+
+let populations2 = [];
+
+for (let i = 0; i < populations.length; i++) {
+  const perc = percentageOfWorld1(populations[i]);
+  populations2.push(perc);
+}
+
+console.log(populations2);
+
+// LECTURE: Looping Backwards and Loops in Loops
+
+const listOfNeighbours = [
+  ['Canada', 'Mexico'],
+  ['Spain'],
+  ['Norway', 'Sweden', 'Russia'],
+];
+
+for (let i = 0; i < listOfNeighbours.length; i++) {
+  for (let y = 0; y < listOfNeighbours[i].length; y++) {
+    console.log(`Neighbour: ${listOfNeighbours[i][y]}`);
+  }
+}
+
+// LECTURE: The while Loop
+
+const percentages3 = [];
+let i = 0;
+while (i < populations.length) {
+  const perc = percentageOfWorld1(populations[i]);
+  percentages3.push(perc);
+  i++;
+}
+console.log(percentages3);
